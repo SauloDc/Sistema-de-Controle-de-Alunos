@@ -20,11 +20,11 @@ class Turma extends Model
 
     public function Escola()
     {
-        return $this->belongsTo(Escola::class)->withTrashed();
+        return $this->belongsTo(Escola::class);
     }
 
     public function Alunos()
     {
-        return $this->belongsToMany(Alunos::class)->withTrashed();        
+        return $this->belongsToMany(Alunos::class);        
     }
 }

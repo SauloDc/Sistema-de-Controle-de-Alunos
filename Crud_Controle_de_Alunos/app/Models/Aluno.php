@@ -17,9 +17,10 @@ class Aluno extends Model
         'dataNacimento',
         'sexo'
     ];
+    /// aluno com turma belongs to many
 
     public function Escola()
     {
-        return $this->belongsTo(Escola::class)->withTrashed();
+        return $this->belongsTo(Escola::class);
     }
 }
