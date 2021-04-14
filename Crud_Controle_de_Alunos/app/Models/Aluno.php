@@ -14,7 +14,7 @@ class Aluno extends Model
         'nome',
         'telefone',
         'email',
-        'dataNacimento',
+        'dataNascimento',
         'sexo'
     ];
     /// aluno com turma belongs to many
@@ -22,5 +22,10 @@ class Aluno extends Model
     public function Escola()
     {
         return $this->belongsTo(Escola::class);
+    }
+
+    public function Turmas()
+    {
+        return $this->belongsToMany(Turma::class);        
     }
 }
