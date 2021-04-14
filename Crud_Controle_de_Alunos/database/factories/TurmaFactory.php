@@ -22,9 +22,9 @@ class TurmaFactory extends Factory
      */
     public function definition()
     {
-        $nivel = $this->faker->randomElement(['fundamental', 'medio']);
+        $nivel = $this->faker->randomElement(["Ensino Fundamental", "Ensino Médio"]);
         
-        $serie = $nivel === 'fundamental' ? $this->faker->numberBetween(1 , 9) : $this->faker->numberBetween(1 , 3);    
+        $serie = $nivel === "Ensino Fundamental" ? $this->faker->numberBetween(1 , 9) : $this->faker->numberBetween(1 , 3);    
 
         return [
             'ano'=> $this->faker->dateTimeThisDecade,

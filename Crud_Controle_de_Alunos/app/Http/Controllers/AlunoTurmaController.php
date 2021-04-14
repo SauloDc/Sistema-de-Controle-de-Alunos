@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Turma;
 use Illuminate\Http\Request;
 
-class TurmaController extends Controller
+class AlunoTurmaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class TurmaController extends Controller
      */
     public function index()
     {
-        $turmas = Turma::all();
-        return view('turmas.index', ['turmas' => $turmas]);
+        return 'Alunos Turmas';
     }
 
     /**
@@ -25,7 +23,8 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        //
+        redirect()->back();
+        return 'Aluno Turmas';
     }
 
     /**

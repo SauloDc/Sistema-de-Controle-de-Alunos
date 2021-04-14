@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Aluno;
+use App\Models\Escola;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AlunoFactory extends Factory
@@ -27,7 +28,8 @@ class AlunoFactory extends Factory
             'telefone' => $this->faker->landline,
             'email' => $this->faker->email,
             'dataNascimento' => $this->faker->dateTimeThisCentury,
-            'sexo' => $gender
+            'sexo' => $gender,
+            'escola_id' => Escola::query()->inRandomOrder()->first()->id,
         ];
     }
 }

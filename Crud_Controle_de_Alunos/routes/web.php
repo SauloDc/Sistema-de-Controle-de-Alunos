@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\{AlunoController, AlunoTurmaController, EscolaController, TurmaController, };
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect( route('Escola.index'));
 });
+
+Route::resources([
+    'Aluno' => AlunoController::class,
+    'Escola' => EscolaController::class,
+    'Turma' => TurmaController::class,
+    'Aluno_Turma' => AlunoTurmaController::class,
+]); 

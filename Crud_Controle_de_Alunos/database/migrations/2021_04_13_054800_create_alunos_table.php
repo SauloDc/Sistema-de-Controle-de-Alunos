@@ -20,6 +20,7 @@ class CreateAlunosTable extends Migration
             $table->string('email')->nullable(false);
             $table->datetime('dataNascimento');
             $table->string('sexo');
+            $table->unsignedBigInteger('escola_id');
             $table->timestamps();
             $table->softDeletes();
         });

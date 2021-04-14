@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aluno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class AlunoController extends Controller
 {
@@ -13,7 +16,8 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        $alunos = Aluno::paginate(10);
+       return view('alunos.index', ['alunos' => $alunos]);
     }
 
     /**

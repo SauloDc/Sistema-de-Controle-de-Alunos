@@ -17,7 +17,6 @@ class Aluno extends Model
         'dataNascimento',
         'sexo'
     ];
-    /// aluno com turma belongs to many
 
     public function Escola()
     {

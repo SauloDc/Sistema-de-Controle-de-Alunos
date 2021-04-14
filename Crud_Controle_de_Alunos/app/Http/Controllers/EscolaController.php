@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Escola;
 use Illuminate\Http\Request;
 
 class EscolaController extends Controller
@@ -13,7 +14,8 @@ class EscolaController extends Controller
      */
     public function index()
     {
-        //
+       $escolas = Escola::all();
+       return view('escolas.index', ['escolas' => $escolas]);
     }
 
     /**
@@ -45,7 +47,7 @@ class EscolaController extends Controller
      */
     public function show($id)
     {
-        //
+        return;
     }
 
     /**
