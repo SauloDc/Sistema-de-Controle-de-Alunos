@@ -15,7 +15,7 @@ da escola seguido por todas as turmas desta escola, olhando os detalhes destas p
  #### Testando o Projeto: 
 Para testar você precisa de algumas ferramentas:
     
-    * Banco de dados Sql -> utilizei o MySql ja instalado atravez do Xampp
+    * Banco de dados Sql -> utilizei o MySql 5.5 ja instalado atravez do Xampp 3.2.4
     * PHP versao >= 7    -> utilizei a versao 8.00 
     * Composer           -> utilizei a versao 2.0.11
     * Npm                -> utilizei a versao 6.14.11
