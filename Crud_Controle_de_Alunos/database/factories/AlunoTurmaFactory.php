@@ -24,9 +24,10 @@ class AlunoTurmaFactory extends Factory
     public function definition()
     {
         $aluno = Aluno::query()->inRandomOrder()->first();
+        $turma =Turma::query()->where('escola_id', $aluno->escola_id)->inRandomOrder()->first();
         return [
             'aluno_id' => $aluno->id,
-            'turma_id' => Turma::query()->where('escola_id', $aluno->escola_id)->inRandomOrder()->first()->id,
+            'turma_id' => $turma? $turma->id: null,
         ];
     }
 }

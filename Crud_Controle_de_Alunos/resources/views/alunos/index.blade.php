@@ -4,11 +4,21 @@
 @section('content')
 
 <div class="card shadow mb-4">
-    <nav class="mt-2 mx-2 navbar justify-content-between">
-        <h2 class="my-auto">Alunos</h2>
-        <form class="form-inline" action="{{route('Aluno.create')}}" method="get">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Criar Aluno</button>
-        </form>
+    <nav class="navbar">
+        <div class="mx-auto mt-3">
+            <form class="form-inline" action="{{ route('Aluno.create') }}" method="get">
+                <h2 class="mr-4 my-auto">Alunos</h2>
+                <button class="btn btn-success" type="submit">Criar Aluno</button>
+            </form>
+        </div>
+        <div class="form-inline justify-content-end mx-auto mt-3">
+            <form class="col my-auto" action="">
+                <div class="form-group input-group-append mr-4">
+                    <input class="form-control mr-2" type="search" placeholder="Search">
+                    <button class="btn btn-success" type="submit">Buscar</button>
+                </div>
+            </form>
+        </div>
     </nav>
     <div class="card-body">
         <div class="table-responsive">
@@ -31,7 +41,7 @@
                         <td>{{ $aluno->nome }}</td>
                         <td>{{ $aluno->telefone }}</td>
                         <td>{{ $aluno->email }}</td>
-                        <td>{{ date('d-m-Y', strtotime($aluno->dataNascimento))}}</td>
+                        <td>{{ date('d/m/Y', strtotime($aluno->dataNascimento)) }}</td>
                         <td>{{ $aluno->sexo === 'male' ? "Masculino" : "Feminino" }}</td>
                         <td class="text-center" style="display:blocks;">
                             <a class="btn btn-primary" href="{{route('Aluno.show', $aluno->id)}}" title="Mostrar"><i class="far fa-eye text-white"></i></a>

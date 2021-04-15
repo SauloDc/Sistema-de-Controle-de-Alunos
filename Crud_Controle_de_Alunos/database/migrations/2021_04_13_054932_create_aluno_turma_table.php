@@ -16,7 +16,7 @@ class CreateAlunoTurmaTable extends Migration
         Schema::create('aluno_turma', function (Blueprint $table) {
             $table->id();
             $table->foreignId('aluno_id')->constrained();
-            $table->foreignId('turma_id')->constrained();
+            $table->foreignId('turma_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

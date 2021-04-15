@@ -18,12 +18,12 @@ class Aluno extends Model
         'sexo'
     ];
 
-    public function Escola()
+    public function escola()
     {
         return $this->belongsTo(Escola::class);
     }
 
-    public function Turmas()
+    public function turmas()
     {
         return $this->belongsToMany(Turma::class);        
     }

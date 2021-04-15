@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Aluno;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
 
 class AlunoController extends Controller
 {
@@ -17,7 +15,7 @@ class AlunoController extends Controller
     public function index()
     {
         $alunos = Aluno::paginate(10);
-       return view('alunos.index', ['alunos' => $alunos]);
+        return view('alunos.index', ['alunos' => $alunos]);
     }
 
     /**
@@ -27,7 +25,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alunos.create');
     }
 
     /**
@@ -38,7 +36,8 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Aluno::create($request->all()); 
+        return redirect(route('Aluno.index'));
     }
 
     /**
@@ -49,7 +48,8 @@ class AlunoController extends Controller
      */
     public function show($id)
     {
-        //
+        $aluno = Aluno::find($id);
+        return view('alunos.show', ['aluno' => $aluno]);
     }
 
     /**
@@ -60,7 +60,8 @@ class AlunoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aluno = Aluno::find($id);
+        return view('alunos.edit', ['aluno' => $aluno]);
     }
 
     /**
@@ -72,7 +73,9 @@ class AlunoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aluno = Aluno::find($id);
+        $aluno->update($request->all()); 
+        return redirect(route('Aluno.index'));
     }
 
     /**
@@ -83,6 +86,8 @@ class AlunoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aluno = Aluno::find($id);
+        $aluno->delete();
+        return redirect(route('Aluno.index'));
     }
 }

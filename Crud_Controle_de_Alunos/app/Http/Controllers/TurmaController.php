@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aluno;
 use App\Models\Turma;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TurmaController extends Controller
 {
@@ -14,7 +16,7 @@ class TurmaController extends Controller
      */
     public function index()
     {
-        $turmas = Turma::all();
+        $turmas = Turma::paginate(10);
         return view('turmas.index', ['turmas' => $turmas]);
     }
 
@@ -25,7 +27,7 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        //
+        return view('turmas.create');
     }
 
     /**
@@ -36,7 +38,8 @@ class TurmaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Turma::create($request->all()); 
+        return redirect(route('Turma.index'));
     }
 
     /**
@@ -47,7 +50,23 @@ class TurmaController extends Controller
      */
     public function show($id)
     {
-        //
+        // $alunos = Aluno::whereHas('turmas', function($query) use ($id) {
+        //                 $query->where('turma_id', $id);
+        //                 // dd($query);
+        // });
+        // dd($alunos->get());
+        // $turma = Turma::where('id',$id)->alunos;
+        // dd($turma);
+        // $alunos = $turma->alunos->paginate(10);
+
+        $turma = Turma::find($id);
+
+        $alunos = DB::table('alunos')
+                ->leftJoin('aluno_turma', 'alunos.id', '=', 'aluno_turma.aluno_id')
+                ->where('turma_id', '=', $turma->id)
+                ->paginate(10);
+
+        return view('turmas.show', ['turma' => $turma, 'alunos' => $alunos]);
     }
 
     /**
@@ -58,7 +77,8 @@ class TurmaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $turma = Turma::find($id);
+        return view('turmas.edit', ['turma' => $turma]);
     }
 
     /**
@@ -70,7 +90,9 @@ class TurmaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $turma = Turma::find($id);
+        $turma->update($request->all()); 
+        return redirect(route('Turma.index'));
     }
 
     /**
@@ -81,6 +103,8 @@ class TurmaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $turma = Turma::find($id);
+        $turma->delete();
+        return redirect(route('Turma.index'));
     }
 }

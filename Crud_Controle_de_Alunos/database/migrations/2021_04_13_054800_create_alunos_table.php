@@ -16,11 +16,11 @@ class CreateAlunosTable extends Migration
         Schema::create('alunos', function (Blueprint $table) {
             $table->id();
             $table->string('nome')->nullable(false);
-            $table->string('telefone');
+            $table->string('telefone')->nullable();
             $table->string('email')->nullable(false);
             $table->datetime('dataNascimento');
-            $table->string('sexo');
-            $table->unsignedBigInteger('escola_id');
+            $table->string('sexo')->nullable();
+            $table->unsignedBigInteger('escola_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

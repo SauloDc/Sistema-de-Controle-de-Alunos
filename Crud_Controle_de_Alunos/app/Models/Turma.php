@@ -18,13 +18,13 @@ class Turma extends Model
         'escola_id'
     ];
 
-    public function Escola()
+    public function escola()
     {
         return $this->belongsTo(Escola::class);
     }
 
-    public function Alunos()
+    public function alunos()
     {
-        return $this->belongsToMany(Alunos::class);        
+        return $this->belongsToMany(Aluno::class);        
     }
 }
