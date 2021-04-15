@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aluno;
 use App\Models\Escola;
+use App\Models\Turma;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -27,7 +28,8 @@ class AlunoController extends Controller
     public function create()
     {
         $escolas = Escola::all();
-        return view('alunos.create',['escolas' => $escolas]);
+        $turmas = Turma::all();
+        return view('alunos.create',['escolas' => $escolas, 'turmas' => $turmas]);
     }
 
     /**
@@ -64,7 +66,8 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::find($id);
         $escolas = Escola::all();
-        return view('alunos.edit', ['aluno' => $aluno, 'escolas' => $escolas]);
+        $turmas = Turma::all();
+        return view('alunos.edit', ['aluno' => $aluno, 'escolas' => $escolas, 'turmas' => $turmas]);
     }
 
     /**

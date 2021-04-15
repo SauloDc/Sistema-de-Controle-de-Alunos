@@ -14,16 +14,6 @@
 <div class="card shadow mb-4">
     <nav class="mt-2 mx-2 navbar justify-content-between">
         <h2 class="my-auto">Alunos</h2>
-        <form class="form-inline" action="{{ route('Aluno.update', 'turma_id') }}" method="post">
-            @method('PUT')
-            <select class="form-control" name="aluno_id" value="{{ @$aluno->escola_id ?? old('escola_id') }}" required>
-                <option>Escolha o Aluno</option>
-                @foreach($alunosEscola as $aluno)
-                    <option value="{{ $aluno->id }}">{{ $aluno->id }} - {{ $aluno->nome }}</option>
-                @endforeach
-            </select>
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Inserir Aluno</button>
-        </form>
     </nav>
     <div class="card-body">
         <div class="table-responsive">

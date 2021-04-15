@@ -22,9 +22,9 @@ class CreateAlunosTable extends Migration
             $table->string('sexo')->nullable();
             $table->unsignedBigInteger('escola_id');
             $table->unsignedBigInteger('turma_id')->nullable();
+            $table->timestamps();
             $table->foreign('escola_id')->references('id')->on('escolas')->onDelete('cascade');
             $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

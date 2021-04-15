@@ -14,7 +14,7 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <label>Telefone</label>
-            <input type="text" class="form-control" name="telefone" pattern="\[0-9]{4,6}-[0-9]{3,4}$" placeholder="9999-9999" value="{{ @$aluno->telefone ?? old('telefone') }}">
+            <input type="text" class="form-control" name="telefone" placeholder="9999-9999" value="{{ @$aluno->telefone ?? old('telefone') }}">
         </div>
 
         <div class="form-group col-md-3">
@@ -24,7 +24,7 @@
 
         <div class="form-group col-md-3">
             <label>Gênero</label>
-            <select class="form-control" name="sexo" value="{{ $aluno->sexo ?? old('sexo') }}">
+            <select class="form-control" name="sexo" value="{{ @$aluno->sexo ?? old('sexo') }}">
                 <option>Escolha o Genero</option>
                 <option {{ @$aluno->sexo === 'male' ? 'selected' : '' }} value="male">Masculino</option>
                 <option {{ @$aluno->sexo === 'female' ? 'selected' : '' }} value="female">Feminino</option>
@@ -37,7 +37,21 @@
             <select class="form-control" name="escola_id" value="{{@$aluno->escola_id ?? old('escola_id') }}">
                 <option>Escolha a Escola</option>
                 @foreach($escolas as $escola)
-                    <option {{ @$aluno->escola_id == $escola->id ? 'selected' : '' }} value="{{ $escola->id }}">{{ $escola->id }} - {{ $escola->nome }}</option>
+                    <option {{ @$aluno->escola_id == $escola->id ? 'selected' : '' }} value="{{ $escola->id }}">
+                        {{ $escola->id }} - {{ $escola->nome }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-md-5">
+            <label>Turma</label>
+            <select class="form-control" name="turma_id" value="{{@$aluno->turma_id ?? old('turma_id') }}">
+                <option>Escolha a Turma</option>
+                @foreach($turmas as $turma)
+
+                    <option {{ @$turma->id == @$aluno->turma_id ? 'selected' : '' }} value="{{@$turma->id }}"> 
+                        {{ $turma->id }} - Turma de {{ date('Y', strtotime($turma->ano))}} - {{ $turma->turno}}
+                    </option>
                 @endforeach
             </select>
         </div>
