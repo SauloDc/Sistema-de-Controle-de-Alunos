@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Aluno;
 use App\Models\Escola;
+use App\Models\Turma;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AlunoFactory extends Factory
@@ -30,6 +31,7 @@ class AlunoFactory extends Factory
             'dataNascimento' => $this->faker->dateTimeThisCentury,
             'sexo' => $gender,
             'escola_id' => Escola::query()->inRandomOrder()->first()->id,
+            'turma_id' => Turma::query()->inRandomOrder()->first()->id,
         ];
     }
 }

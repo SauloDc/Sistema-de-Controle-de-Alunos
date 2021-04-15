@@ -31,6 +31,17 @@
             </select>
         </div>
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label>Escola</label>
+            <select class="form-control" name="escola_id" value="{{@$aluno->escola_id ?? old('escola_id') }}">
+                <option>Escolha a Escola</option>
+                @foreach($escolas as $escola)
+                    <option {{ @$aluno->escola_id == $escola->id ? 'selected' : '' }} value="{{ $escola->id }}">{{ $escola->id }} - {{ $escola->nome }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
 </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
 </div>

@@ -25,6 +25,6 @@ class Turma extends Model
 
     public function alunos()
     {
-        return $this->belongsToMany(Aluno::class);        
+        return $this->hasMany(Aluno::class);        
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aluno;
+use App\Models\Escola;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
@@ -25,7 +26,8 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('alunos.create');
+        $escolas = Escola::all();
+        return view('alunos.create',['escolas' => $escolas]);
     }
 
     /**
@@ -61,7 +63,8 @@ class AlunoController extends Controller
     public function edit($id)
     {
         $aluno = Aluno::find($id);
-        return view('alunos.edit', ['aluno' => $aluno]);
+        $escolas = Escola::all();
+        return view('alunos.edit', ['aluno' => $aluno, 'escolas' => $escolas]);
     }
 
     /**

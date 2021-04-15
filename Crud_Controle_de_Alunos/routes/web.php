@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AlunoController, AlunoTurmaController, EscolaController, TurmaController, };
+use App\Http\Controllers\{AlunoController, EscolaController, TurmaController };
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +22,4 @@ Route::resources([
     'Aluno' => AlunoController::class,
     'Escola' => EscolaController::class,
     'Turma' => TurmaController::class,
-    'Aluno_Turma' => AlunoTurmaController::class,
-]); 
+    ]); 

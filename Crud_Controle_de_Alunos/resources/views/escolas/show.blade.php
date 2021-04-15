@@ -12,9 +12,6 @@
     <div class="card shadow mb-4">
         <nav class="mt-2 mx-2 navbar justify-content-between">
             <h2 class="my-auto">Turmas</h2>
-            <form class="form-inline" action="{{route('Turma.create')}}" method="get">
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Criar Turma</button>
-            </form>
         </nav>
         <div class="card-body">
             <div class="table-responsive">

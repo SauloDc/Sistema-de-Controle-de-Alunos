@@ -4,23 +4,12 @@
 @section('content')
 
 <div class="card shadow mb-4">
-    <nav class="navbar">
-        <div class="mx-auto mt-3">
-            <form class="form-inline" action="{{ route('Escola.create') }}" method="get">
-                <h2 class="mr-4 my-auto">Escolas</h2>
-                <button class="btn btn-success" type="submit">Criar Escola</button>
-            </form>
-        </div>
-        <div class="form-inline justify-content-end mx-auto mt-3">
-            <form class="col my-auto" action="">
-                <div class="form-group input-group-append mr-4">
-                    <input class="form-control mr-2" type="search" placeholder="Search">
-                    <button class="btn btn-success" type="submit">Buscar</button>
-                </div>
-            </form>
-        </div>
+    <nav class="mt-2 mx-2 navbar justify-content-between">
+        <h2 class="my-auto">Escolas</h2>
+        <form class="form-inline" action="{{ route('Escola.create') }}" method="get">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Criar Escola</button>
+        </form>
     </nav>
-
 
     <div class="card-body">
         <div class="table-responsive">

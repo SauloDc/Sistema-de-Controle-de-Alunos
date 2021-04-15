@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aluno;
+use App\Models\Escola;
 use App\Models\Turma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,8 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        return view('turmas.create');
+        $escolas = Escola::all();
+        return view('turmas.create', ['escolas' => $escolas]);
     }
 
     /**
@@ -38,7 +40,7 @@ class TurmaController extends Controller
      */
     public function store(Request $request)
     {
-        Turma::create($request->all()); 
+        Turma::create($request->all());
         return redirect(route('Turma.index'));
     }
 
@@ -50,23 +52,13 @@ class TurmaController extends Controller
      */
     public function show($id)
     {
-        // $alunos = Aluno::whereHas('turmas', function($query) use ($id) {
-        //                 $query->where('turma_id', $id);
-        //                 // dd($query);
-        // });
-        // dd($alunos->get());
-        // $turma = Turma::where('id',$id)->alunos;
-        // dd($turma);
-        // $alunos = $turma->alunos->paginate(10);
-
         $turma = Turma::find($id);
+        $alunosEscola = Aluno::where('escola_id', '=', $turma->escola_id)->get();
+        
+        $alunos = Aluno::where('turma_id', $id)->paginate(10);    
+    
 
-        $alunos = DB::table('alunos')
-                ->leftJoin('aluno_turma', 'alunos.id', '=', 'aluno_turma.aluno_id')
-                ->where('turma_id', '=', $turma->id)
-                ->paginate(10);
-
-        return view('turmas.show', ['turma' => $turma, 'alunos' => $alunos]);
+        return view('turmas.show', ['turma' => $turma, 'alunos' => $alunos, 'alunosEscola' => $alunosEscola]);
     }
 
     /**
@@ -78,7 +70,8 @@ class TurmaController extends Controller
     public function edit($id)
     {
         $turma = Turma::find($id);
-        return view('turmas.edit', ['turma' => $turma]);
+        $escolas = Escola::all();
+        return view('turmas.edit', ['turma' => $turma, 'escolas' => $escolas]);
     }
 
     /**
@@ -91,7 +84,7 @@ class TurmaController extends Controller
     public function update(Request $request, $id)
     {
         $turma = Turma::find($id);
-        $turma->update($request->all()); 
+        $turma->update($request->all());
         return redirect(route('Turma.index'));
     }
 
