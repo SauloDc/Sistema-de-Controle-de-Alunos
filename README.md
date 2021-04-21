@@ -33,10 +33,7 @@ após instalar todas as dependencias do php precisamos executar um:
 ```
 npm Install
 ```
-e uma vez que estes estejam instalados basta executar o comando para gerar as tabelas e popular o BD:
-```
-php artisan migrate:fresh --seed
-```
+e uma vez que estes estejam instalados é preciso criar o banco de dados, o arquivo sql esta na pasta 00_Banco de Dados:
 pronto! agr já esta tudo pronto para funcionar!
 agora so executar o comando 
 ```
