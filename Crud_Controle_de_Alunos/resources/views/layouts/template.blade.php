@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-                <a class=" ml-3 navbar-brand" href="{{ route('Escola.index') }}">Escolas</a>
+                <a class=" ml-3 navbar-brand" href="{{ route('school.get.index') }}">Escolas</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,10 +23,10 @@
 
                 <ul class="navbar-nav mr-auto">
                     <li class="ml-3 nav-item active">
-                        <a class="nav-link" href="{{ route('Turma.index') }}">Turmas <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('team.get.index') }}">Turmas <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="ml-3 nav-item active">
-                        <a class="nav-link" href="{{ route('Aluno.index') }}">Alunos<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('student.get.index') }}">Alunos<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
