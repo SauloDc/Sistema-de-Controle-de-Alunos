@@ -6,7 +6,7 @@
 <div class="card shadow mb-4">
     <nav class="mt-2 mx-2 navbar justify-content-between">
         <h2 class="my-auto">Escolas</h2>
-        <form class="form-inline" action="{{ route('school.get.create') }}" method="get">
+        <form class="form-inline" action="{{ route('school.get.create_view') }}" method="get">
             <button class="btn btn-success my-2 my-sm-0" type="submit">Criar Escola</button>
         </form>
     </nav>
@@ -32,8 +32,8 @@
                         <td>{{ $qtyStudents[$school->id] }}</td>
                         <td class="text-center" style="display:blocks;">
                             <a class="btn btn-primary" href="{{route('school.get.view', $school->id)}}" title="Mostrar"><i class="far fa-eye text-white"></i></a>
-                            <a class="btn btn-success" href="{{route('school.get.edit', $school->id)}}" title="Editar"><i class="far fa-edit text-white"></i></a>
-                            <form action="{{route('school.delete.destroy', $school->id)}}" method="post" style="display:inline">
+                            <a class="btn btn-success" href="{{route('school.get.edit_view', $school->id)}}" title="Editar"><i class="far fa-edit text-white"></i></a>
+                            <form action="{{route('school.delete.delete', $school->id)}}" method="post" style="display:inline">
                                 @method('DELETE')
                                 @csrf
                                 <button class=" center btn btn-danger" type="submit" title="Apagar"><i class="far fa-trash-alt text-white"></i></button>

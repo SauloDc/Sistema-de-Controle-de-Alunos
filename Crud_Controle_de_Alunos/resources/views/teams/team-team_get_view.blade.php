@@ -40,8 +40,8 @@
                         <td>{{ $student->gender === 'male' ? "Masculino" : "Feminino" }}</td>
                         <td class="text-center" style="display:blocks;">
                             <a class="btn btn-primary" href="{{route('student.get.view', $student->id)}}" title="Mostrar"><i class="far fa-eye text-white"></i></a>
-                            <a class="btn btn-success" href="{{route('student.get.edit', $student->id)}}" title="Editar"><i class="far fa-edit text-white"></i></a>
-                            <form action="{{route('student.delete.destroy', $student->id)}}" method="post" style="display:inline">
+                            <a class="btn btn-success" href="{{route('student.get.edit_view', $student->id)}}" title="Editar"><i class="far fa-edit text-white"></i></a>
+                            <form action="{{route('student.delete.delete', $student->id)}}" method="post" style="display:inline">
                                 @method('DELETE')
                                 @csrf
                                 <button class=" center btn btn-danger" type="submit" title="Apagar"><i class="far fa-trash-alt text-white"></i></button>

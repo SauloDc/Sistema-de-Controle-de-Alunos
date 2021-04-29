@@ -6,7 +6,7 @@
 <div class="card shadow mb-4">
     <nav class="mt-2 mx-2 navbar justify-content-between">
         <h2 class="my-auto">Alunos</h2>
-        <form class="form-inline" action="{{route('student.get.create')}}" method="get">
+        <form class="form-inline" action="{{route('student.get.create_view')}}" method="get">
             <button class="btn btn-success my-2 my-sm-0" type="submit">Criar Aluno</button>
         </form>
     </nav>
@@ -35,8 +35,8 @@
                         <td>{{ $student->gender === 'male' ? "Masculino" : "Feminino" }}</td>
                         <td class="text-center" style="display:blocks;">
                             <a class="btn btn-primary" href="{{route('student.get.view', $student->id)}}" title="Mostrar"><i class="far fa-eye text-white"></i></a>
-                            <a class="btn btn-success" href="{{route('student.get.edit', $student->id)}}" title="Editar"><i class="far fa-edit text-white"></i></a>
-                            <form action="{{route('student.delete.destroy', $student->id)}}" method="post" style="display:inline">
+                            <a class="btn btn-success" href="{{route('student.get.edit_view', $student->id)}}" title="Editar"><i class="far fa-edit text-white"></i></a>
+                            <form action="{{route('student.delete.delete', $student->id)}}" method="post" style="display:inline">
                                 @method('DELETE')
                                 @csrf
                                 <button class=" center btn btn-danger" type="submit" title="Apagar"><i class="far fa-trash-alt text-white"></i></button>

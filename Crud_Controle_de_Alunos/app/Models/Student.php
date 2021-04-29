@@ -10,6 +10,7 @@ class Student extends Model
 {
 
     protected $guarded = [];
+    protected $table = 'students';
 
     public function school()
     {

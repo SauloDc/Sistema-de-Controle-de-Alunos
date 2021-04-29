@@ -7,7 +7,7 @@ use App\Rules\Team\TeamSeries;
 use App\Rules\Team\TeamShift;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class EditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,7 @@ class StoreRequest extends FormRequest
             'shift' => ['required', new TeamShift],
         ];
     }
-
+    
     public function messages()
     {
         return [

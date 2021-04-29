@@ -6,7 +6,7 @@ use App\Rules\Student\StudentGender;
 use App\Rules\Student\StudentPhone;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class EditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
